@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://WorkerB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://BbyB.tscn" type="PackedScene" id=2]
+[ext_resource path="res://QueenB.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://DroneB.tscn" type="PackedScene" id=5]
+
+[node name="Game" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource( 4 )]
+
+[node name="QueenB" parent="." instance=ExtResource( 3 )]
+position = Vector2( 510, 163 )
+
+[node name="DroneB" parent="." instance=ExtResource( 5 )]
+position = Vector2( 575, 156 )
+
+[node name="BbyB" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512, 266 )
+
+[node name="WorkerB" parent="." instance=ExtResource( 1 )]
+position = Vector2( 578, 268 )
