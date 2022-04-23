@@ -6,7 +6,7 @@
 radius = 12.0
 height = 24.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="KinematicBody2D"]
 __meta__ = {
 "_edit_group_": true
 }
