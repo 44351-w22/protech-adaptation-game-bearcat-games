@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Game.gd" type="Script" id=2]
+[ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://RigidBody2D.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node2D"]
-script = ExtResource( 2 )
 
 [node name="TileMap" parent="." instance=ExtResource( 4 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 510, 259 )
+script = ExtResource( 2 )
 
 [node name="RigidBody2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 160, 128 )
