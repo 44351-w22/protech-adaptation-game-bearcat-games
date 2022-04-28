@@ -1,16 +1,32 @@
 extends KinematicBody2D
 
-export (int) var speed = 200
+const speed = 400
+var path setget set_path
 
-var target = Vector2()
-var velocity = Vector2()
+func _ready():
+	set_process(false)
 
-func _input(event):
-	if event.is_action_pressed('click'):
-		target = get_global_mouse_position()
+func set_path(value:PoolVector2Array):
+	path = value
+	if value.size() == 0:
+		return
+	set_process(true)
 
-func _physics_process(delta):
-	velocity = (target - position).normalized() * speed
+func _process(delta):
+	move_along_path(speed * delta)
 
-	if (target - position).length() > 5:
-		velocity = move_and_slide(velocity)
+func move_along_path(distance):
+	var start = position
+	while distance > 0 and path.size() > 0:
+		var dist_to_next = start.distance_to(path[0])
+		if distance <= dist_to_next:
+			position = start.linear_interpolate(path[0], distance / dist_to_next)
+			return
+		elif distance < 0.0:
+			position = path[0]
+			set_process(false)
+			return
+		distance -= dist_to_next
+		start = path[0]
+		path.remove(0)
+	set_process(false)
