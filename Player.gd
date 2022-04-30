@@ -1,8 +1,15 @@
 extends KinematicBody2D
 
+var diceroll = 0
+var dicemax = 6
+
 const speed = 400
 var path setget set_path
 
+func on_player_turn():
+	diceroll.disable = false
+	pass
+	
 func _ready():
 	set_process(false)
 
@@ -30,3 +37,5 @@ func move_along_path(distance):
 		start = path[0]
 		path.remove(0)
 	set_process(false)
+func on_button_pressed():
+	diceroll.visible = false

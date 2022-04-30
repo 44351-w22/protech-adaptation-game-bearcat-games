@@ -12,3 +12,7 @@ func _input(event):
 func _physics_process(delta):
 	linear_velocity.x = 0
 	velocity = (target - position).normalized() * speed
+
+func on_RigidBody2D_body_entered(body):
+	body.score += 1
+	
