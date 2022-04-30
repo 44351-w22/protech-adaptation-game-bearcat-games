@@ -7,10 +7,10 @@ var velocity = Vector2()
 var already_touched = false
 
 
+
 func _on_Flower_body_entered(body):
 	if !already_touched:
 		body.score += 1
 		body.turn_pickup += 1
 		visible = false
 		already_touched = true
-

@@ -11,7 +11,8 @@ script/source = "extends Sprite
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.0278
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Flower" type="Area2D"]
+collision_layer = 2
 script = ExtResource( 3 )
 
 [node name="Flower" type="Sprite" parent="."]
@@ -21,3 +22,5 @@ script = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -3 )
 shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_Flower_body_entered"]
